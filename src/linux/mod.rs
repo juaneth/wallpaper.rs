@@ -1,6 +1,7 @@
 mod gnome;
 mod kde;
 mod lxde;
+mod hyprland;
 pub(crate) mod xfce;
 
 use crate::{get_stdout, run, Error, Mode, Result};
@@ -29,6 +30,7 @@ pub fn get() -> Result<String> {
         ),
         "XFCE" => xfce::get(),
         "LXDE" => lxde::get(),
+        "Hyprland" => hyprland::get(),
         "Deepin" => parse_dconf(
             "dconf",
             &[
